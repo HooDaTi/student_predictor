@@ -1,7 +1,9 @@
-# Środowiska wirtualne
-venv/
+# Środowiska wirtualne (uv / venv)
 .venv/
+venv/
 env/
+
+# Sekrety / zmienne środowiskowe
 .env
 .env.*
 
@@ -26,6 +28,11 @@ htmlcov/
 .tox/
 .nox/
 
+# uv / cache narzędzi Python
+.ruff_cache/
+.mypy_cache/
+.pytype/
+
 # Streamlit
 .streamlit/secrets.toml
 
@@ -48,3 +55,4 @@ desktop.ini
 
 # Dane tymczasowe z testów
 dummy_test_data.csv
+

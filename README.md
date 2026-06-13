@@ -12,8 +12,8 @@ Aplikacja webowa do analizy i predykcji wyników studentów z matematyki. Projek
 
 ## Wymagania
 
-- Python 3.10+
-- Zależności z pliku `requirements.txt`
+- Python 3.12 (zalecane; projekt wspiera 3.10+)
+- [uv](https://docs.astral.sh/uv/) — menedżer wersji Pythona, środowisk i pakietów
 
 ## Instalacja
 
@@ -21,21 +21,18 @@ Aplikacja webowa do analizy i predykcji wyników studentów z matematyki. Projek
 git clone https://github.com/HooDaTi/student_predictor.git
 cd student_predictor
 
-python -m venv venv
-
-# Windows
-venv\Scripts\activate
-
-# Linux / macOS
-source venv/bin/activate
-
-pip install -r requirements.txt
+uv python install 3.12
+uv venv --python 3.12
+uv python pin 3.12
+uv pip install -r requirements.txt
 ```
+
+Aktywacja venv (`source .venv/bin/activate`) nie jest wymagana — poniżej używaj `uv run`.
 
 ## Uruchomienie
 
 ```bash
-streamlit run app.py
+uv run streamlit run app.py
 ```
 
 Aplikacja otworzy się w przeglądarce (domyślnie `http://localhost:8501`).
@@ -43,13 +40,14 @@ Aplikacja otworzy się w przeglądarce (domyślnie `http://localhost:8501`).
 ## Testy
 
 ```bash
-pytest
+uv run pytest
 ```
 
 ## Struktura projektu
 
 ```
 student_predictor/
+├── .venv/                  # Wirtualne środowisko (uv)
 ├── app.py                  # Aplikacja Streamlit
 ├── data/
 │   └── StudentsPerformance.csv
